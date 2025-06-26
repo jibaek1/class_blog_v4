@@ -42,9 +42,10 @@ public class MyExceptionHandler {
 
     @ExceptionHandler(Exception401.class)
     @ResponseBody // 데이터를 반환 함
-    public ResponseEntity<String> ex401ByData(Exception401 e,HttpServletRequest request) {
+    public ResponseEntity<String> ex401ByData(Exception401 e, HttpServletRequest request) {
 
-        String script = "<script> alert('"+ e.getMessage() +"'); history.back(); </script>";
+        // String script = "<script> alert('"+ e.getMessage() +"'); history.back(); </script>";
+        String script = "<script> alert('" + e.getMessage() + "'); location.href = '/login-form'; </script>";
         return ResponseEntity
                 .status(HttpStatus.FORBIDDEN)
                 .contentType(MediaType.TEXT_HTML)
